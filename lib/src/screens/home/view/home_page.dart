@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              onTap: () => Navigator.pushNamed(context, "/car_info"),
+              onTap: () => Navigator.pushNamed(context, "/select_car"),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
