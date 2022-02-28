@@ -8,15 +8,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffeceff1),
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Home"),
-        actions: [
-          IconButton(
-            splashRadius: 24,
-            icon: const Icon(Icons.settings),
-            onPressed: () {},
-          )
+        actions: const [
+          // IconButton(
+          //   splashRadius: 24,
+          //   icon: const Icon(Icons.settings),
+          //   onPressed: () {},
+          // )
         ],
       ),
       body: Container(
@@ -32,6 +33,7 @@ class HomePage extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 60,
                 decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black26),
                     color: Colors.amber[50],
                     borderRadius: BorderRadius.circular(13)),
                 child: Text(
@@ -52,6 +54,7 @@ class HomePage extends StatelessWidget {
                   alignment: Alignment.center,
                   height: 60,
                   decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black26),
                       color: Colors.amber[50],
                       borderRadius: BorderRadius.circular(13)),
                   child: Text(
@@ -60,7 +63,7 @@ class HomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                onTap: () => Navigator.pushNamed(context, "/manage_car"),
+                onTap: () => Navigator.pushNamed(context, "/my_car"),
               ),
             )
           ],

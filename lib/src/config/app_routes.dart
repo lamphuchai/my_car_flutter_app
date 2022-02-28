@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_car_flutter_app/src/models/models.dart';
-import 'package:my_car_flutter_app/src/screens/car_info/view/view.dart';
+import 'package:my_car_flutter_app/src/screens/add_my_motorbike/add_my_motorbike.dart';
 import 'package:my_car_flutter_app/src/screens/home/home.dart';
-import 'package:my_car_flutter_app/src/screens/manage_car/view/view.dart';
-import 'package:my_car_flutter_app/src/screens/select_car/select_car.dart';
+import 'package:my_car_flutter_app/src/screens/motorbike_info/view/motorbike_info_page.dart';
+import 'package:my_car_flutter_app/src/screens/my_motorbike/my_motorbike.dart';
+import 'package:my_car_flutter_app/src/screens/select_motorbike/select_motorbike.dart';
 import 'package:page_transition/page_transition.dart';
 
 class AppRoutes {
@@ -17,18 +18,24 @@ class AppRoutes {
             type: PageTransitionType.rightToLeftWithFade);
       case '/select_car':
         return PageTransition(
-            child: const SelectCarPage(),
+            child: const SelectMotorbikePage(),
             type: PageTransitionType.rightToLeftWithFade);
-      case '/car_info':
-        if (args != null && args is Car) {
+      case '/motorbike_info':
+        if (args != null && args is Motorbike) {
           return PageTransition(
-              child:  CarInfoPage(car: args,),
+              child: MotorbikeInfoPage(
+                motorbike: args,
+              ),
               type: PageTransitionType.rightToLeftWithFade);
         }
         return _errorRoute();
-      case '/manage_car':
+      case "/add_my_motorbike":
         return PageTransition(
-            child: const ManageCarPage(),
+            child: const AddMyMotorbikePage(),
+            type: PageTransitionType.rightToLeftWithFade);
+      case '/motorbike_car':
+        return PageTransition(
+            child: const MyMotorbikePage(),
             type: PageTransitionType.rightToLeftWithFade);
       default:
         return _errorRoute();

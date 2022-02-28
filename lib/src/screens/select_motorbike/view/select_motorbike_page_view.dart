@@ -1,24 +1,27 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_car_flutter_app/src/config/config.dart';
 import 'package:my_car_flutter_app/src/models/brand_car_model.dart';
-import 'package:my_car_flutter_app/src/screens/select_car/select_car.dart';
+import 'package:my_car_flutter_app/src/screens/select_motorbike/select_motorbike.dart';
 
-class SelectCarPageView extends StatelessWidget {
-  const SelectCarPageView({Key? key}) : super(key: key);
+class SelectMotorbikePageView extends StatelessWidget {
+  const SelectMotorbikePageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Select car"),
+        title: const Text("Select motorbike"),
         actions: [
           IconButton(
               splashRadius: 24,
               onPressed: () {
-                showSearch(context: context, delegate: Search());
+                showSearch(
+                    context: context,
+                    delegate: SearchMotorbike(
+                        context.read<SelectMotorbikeCubit>().state.brandCar));
               },
               icon: const Icon(Icons.search))
         ],
@@ -35,7 +38,7 @@ class SelectCarPageView extends StatelessWidget {
   }
 
   Widget _buildListView(BuildContext context) {
-    return BlocBuilder<SelectCarCubit, SelectCarState>(
+    return BlocBuilder<SelectMotorbikeCubit, SelectMotorbikeState>(
       builder: (context, state) {
         return ListView(
           shrinkWrap: true,
@@ -51,56 +54,17 @@ class SelectCarPageView extends StatelessWidget {
     return ExpansionTile(
       tilePadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
       title: Text(
-        brandCar.brand,
+        brandCar.brand.toTitleCase(),
         style: Theme.of(context).textTheme.headline5,
       ),
-      children: brandCar.typeCar
+      children: brandCar.typeMotorbike
           .map((e) => ListTile(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 25),
-                title: Text(e.nameCar),
-                onTap: () =>
-                    Navigator.pushNamed(context, "/car_info", arguments: e),
+                title: Text(e.nameMotorbike.toTitleCase()),
+                onTap: () => Navigator.pushNamed(context, "/motorbike_info",
+                    arguments: e),
               ))
           .toList(),
     );
-  }
-}
-
-class Search extends SearchDelegate {
-  @override
-  List<Widget>? buildActions(BuildContext context) {
-    // TODO: implement buildActions
-    return [];
-  }
-
-  @override
-  ThemeData appBarTheme(BuildContext context) {
-    return Theme.of(context).copyWith(
-      appBarTheme: Theme.of(context).appBarTheme.copyWith(
-            color: const Color(0xff202c3b),
-          ),
-    );
-  }
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    return const Center(
-      child: const Text("tmp"),
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    return Text("ff");
   }
 }
