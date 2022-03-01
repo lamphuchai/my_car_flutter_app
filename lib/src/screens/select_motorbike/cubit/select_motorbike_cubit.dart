@@ -1,12 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:my_car_flutter_app/src/data/repository.dart';
 import 'package:my_car_flutter_app/src/models/models.dart';
 
 part 'select_motorbike_state.dart';
 
 class SelectMotorbikeCubit extends Cubit<SelectMotorbikeState> {
-  SelectMotorbikeCubit() : super(const SelectMotorbikeState());
+  SelectMotorbikeCubit({required this.repository})
+      : super(const SelectMotorbikeState());
+  final Repository repository;
   void loadingBrandCar() {
+    repository.loadDataAll();
     List<BrandCar> tmp = [
       BrandCar(brand: "honda", typeMotorbike: [
         Motorbike(nameMotorbike: "honda cr15", images: [
@@ -31,7 +35,7 @@ class SelectMotorbikeCubit extends Cubit<SelectMotorbikeState> {
           "https://cdn.wallpaperhub.app/cloudcache/f/a/9/3/c/5/fa93c558f352e89ff3a9f791984da555b546a34b.jpg",
           "https://cdn.wallpaperhub.app/cloudcache/5/8/7/d/e/5/587de526387609c89c678b28e2b52320a740704f.jpg"
         ]),
-        Motorbike(nameMotorbike:  "honda 1", images: [
+        Motorbike(nameMotorbike: "honda 1", images: [
           "http://hd.wallpaperswide.com/thumbs/roewe_i6_max_car-t2.jpg",
           "http://hd.wallpaperswide.com/thumbs/porsche_917_living_legend_car-t2.jpg",
           "http://hd.wallpaperswide.com/thumbs/aprilia_rsv4_yellow_motorcycle-t2.jpg"
