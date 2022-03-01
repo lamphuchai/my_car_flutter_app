@@ -14,7 +14,11 @@ class AddMyMotorbikePageView extends StatelessWidget {
         title: const Text("Thêm vào"),
         actions: [
           IconButton(
-              splashRadius: 24, icon: const Icon(Icons.done), onPressed: () {})
+              splashRadius: 24,
+              icon: const Icon(Icons.done),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, "/my_motorbike");
+              })
         ],
       ),
       body: Theme(

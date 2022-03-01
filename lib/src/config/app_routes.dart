@@ -16,7 +16,7 @@ class AppRoutes {
         return PageTransition(
             child: const HomePage(),
             type: PageTransitionType.rightToLeftWithFade);
-      case '/select_car':
+      case '/select_motorbike':
         return PageTransition(
             child: const SelectMotorbikePage(),
             type: PageTransitionType.rightToLeftWithFade);
@@ -33,7 +33,7 @@ class AppRoutes {
         return PageTransition(
             child: const AddMyMotorbikePage(),
             type: PageTransitionType.rightToLeftWithFade);
-      case '/motorbike_car':
+      case '/my_motorbike':
         return PageTransition(
             child: const MyMotorbikePage(),
             type: PageTransitionType.rightToLeftWithFade);

@@ -11,19 +11,6 @@ class SearchMotorbike extends SearchDelegate {
   String get searchFieldLabel => 'Tìm kiếm';
 
   @override
-  List<Widget>? buildActions(BuildContext context) {
-    return [
-      IconButton(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          onPressed: () {
-            query = "";
-          },
-          icon: const Icon(Icons.clear))
-    ];
-  }
-
-  @override
   ThemeData appBarTheme(BuildContext context) {
     return Theme.of(context).copyWith(
       textTheme: const TextTheme(
@@ -43,6 +30,20 @@ class SearchMotorbike extends SearchDelegate {
   }
 
   @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onPressed: () {
+            query = "";
+            showSuggestions(context);
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
         splashColor: Colors.transparent,
@@ -55,6 +56,9 @@ class SearchMotorbike extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+    if (query.isEmpty) {
+      return Container();
+    }
     List<Motorbike> tst = [];
     for (BrandCar tmp in branCar) {
       List<Motorbike> motorbike = tmp.typeMotorbike
@@ -63,17 +67,18 @@ class SearchMotorbike extends SearchDelegate {
       tst.addAll(motorbike);
     }
     if (tst.isEmpty) {
-      return const Center(
-        child: Text("Không tìm thấy !!", style: TextStyle(color: Colors.black)),
+      return Center(
+        child: Text("Không tìm thấy !!",
+            style: Theme.of(context).textTheme.headline4),
       );
     } else {
       return ListView(
         children: tst
-            .map((Motorbike) => ListTile(
-                  title: Text(Motorbike.nameMotorbike.toTitleCase(),
-                      style: const TextStyle(color: Colors.black)),
+            .map((motorbike) => ListTile(
+                  title: Text(motorbike.nameMotorbike.toTitleCase(),
+                      style: Theme.of(context).textTheme.headline5),
                   onTap: () => Navigator.pushNamed(context, "/motorbike_info",
-                      arguments: Motorbike),
+                      arguments: motorbike),
                 ))
             .toList(),
       );
@@ -82,6 +87,14 @@ class SearchMotorbike extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Container();
+    if (query.isEmpty) {
+      return Container();
+    } else {
+      return ListTile(
+        leading: const Icon(Icons.search),
+        title: Text(query, style: Theme.of(context).textTheme.headline5),
+        onTap: () => showResults(context),
+      );
+    }
   }
 }

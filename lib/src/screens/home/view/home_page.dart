@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,7 +29,7 @@ class HomePage extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 alignment: Alignment.center,
-                height: 60,
+                height: 120,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black26),
                     color: Colors.amber[50],
@@ -42,7 +40,7 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              onTap: () => Navigator.pushNamed(context, "/select_car"),
+              onTap: () => Navigator.pushNamed(context, "/select_motorbike"),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -52,7 +50,7 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   alignment: Alignment.center,
-                  height: 60,
+                  height: 120,
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.black26),
                       color: Colors.amber[50],
@@ -63,7 +61,7 @@ class HomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                onTap: () => Navigator.pushNamed(context, "/my_car"),
+                onTap: () => Navigator.pushNamed(context, "/my_motorbike"),
               ),
             )
           ],

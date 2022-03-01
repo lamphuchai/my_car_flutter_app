@@ -13,7 +13,7 @@ class SelectMotorbikePageView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Select motorbike"),
+        title: const Text("Tra cứu thông tin xe"),
         actions: [
           IconButton(
               splashRadius: 24,

@@ -44,6 +44,7 @@ class CustomSliverAppBar extends StatelessWidget {
       actions: [
         IconButton(
             splashRadius: 24,
+            icon: const Icon(Icons.add),
             onPressed: () {
               showModalBottomSheet(
                   shape: const RoundedRectangleBorder(
@@ -93,8 +94,7 @@ class CustomSliverAppBar extends StatelessWidget {
                           ],
                         ),
                       ));
-            },
-            icon: const Icon(Icons.select_all))
+            })
       ],
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,

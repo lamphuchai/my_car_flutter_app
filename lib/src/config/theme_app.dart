@@ -16,24 +16,36 @@ class ThemePrimary {
 
   static ThemeData theme() {
     return ThemeData(
-      primaryColor: primaryColor,
-      scaffoldBackgroundColor: scaffoldBackgroundColor,
-      backgroundColor: backgroundColor,
-      fontFamily: fontFamily,
-      textTheme: TextTheme(
-        headline1: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.bold, fontSize: 24),
-        headline2: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.bold, fontSize: 20),
-        headline3: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.bold, fontSize: 16),
-        bodyText1: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.w500, fontSize: 14),
-        bodyText2: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.w500, fontSize: 14),
-        subtitle1: TextStyle(
-            color: textPrimaryColor, fontWeight: FontWeight.w400, fontSize: 12),
-      ),
-    );
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        backgroundColor: backgroundColor,
+        fontFamily: fontFamily,
+        textTheme: TextTheme(
+          headline1: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 24),
+          headline2: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 20),
+          headline3: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 16),
+          bodyText1: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 14),
+          bodyText2: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 14),
+          subtitle1: TextStyle(
+              color: textPrimaryColor,
+              fontWeight: FontWeight.w400,
+              fontSize: 12),
+        ),
+        appBarTheme: const AppBarTheme());
   }
 }
